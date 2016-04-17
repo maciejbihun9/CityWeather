@@ -7,6 +7,7 @@ import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -152,10 +153,10 @@ public class NavigationDrawer {
 
         Fragment fragment = null;
         switch (position) {
-            /*case 0:
-                fragment = new HomeFragment();
+            case 0:
+
                 break;
-            case 1:
+            /*case 1:
                 fragment = new FindPeopleFragment();
                 break;
             case 2:
