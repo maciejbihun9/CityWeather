@@ -1,4 +1,52 @@
 <resources>
     <string name="app_name">CityWeather</string>
     <string name="action_settings">Settings</string>
+    <string name="no_location_data_provided">no location data provided</string>
+    <string name="service_not_available">service not available</string>
+    <string name="invalid_lat_long_used">invalid lat long used</string>
+    <string name="no_address_found">no address found</string>
+    <string name="address_found">address found</string>
+    <string name="some_string">string</string>
+    <string name="no_data_yet">no data yet</string>
+    <string name="zero">0</string>
+    <string name="no_time">no time yet</string>
+    <string name="no_summary_yet">no summary yet</string>
+    <string name="no_weather_yet">no weather yet</string>
+    <string name="no_pressure_yet">no pressure yet</string>
+    <string name="temperature">temperature</string>
+    <string name="summary">summary</string>
+    <string name="icon">icon</string>
+    <string name="pressure">pressure</string>
+    <string name="time">time</string>
+    <string name="current_weather">currently</string>
+    <string name="city">city</string>
+    <string name="current_timezone">timezone</string>
+    <string name="daily">daily</string>
+    <string name="loading">loading</string>
+    <string name="navigation_drawer_open">open</string>
+    <string name="navigation_drawer_close">close</string>
+    <!-- Content Description -->
+    <string name="desc_list_item_icon">Item Icon</string>
+
+
+    <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item >Home</item>
+        <item >Find People</item>
+        <item >Photos</item>
+        <item >Communities</item>
+        <item >Pages</item>
+        <item >What\'s Hot</item>
+    </string-array>
+
+    <!-- Nav Drawer List Item Icons -->
+    <!-- Keep them in order as the titles are in -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_home</item>
+        <item>@drawable/ic_people</item>
+        <item>@drawable/ic_photos</item>
+        <item>@drawable/ic_communities</item>
+        <item>@drawable/ic_pages</item>
+        <item>@drawable/ic_whats_hot</item>
+    </array>
 </resources>

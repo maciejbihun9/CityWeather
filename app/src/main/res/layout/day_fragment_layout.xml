@@ -80,7 +80,4 @@
             android:id="@+id/icon"
             android:layout_above="@+id/summary"
             android:layout_centerHorizontal="true"/>
-
-
-
     </RelativeLayout>

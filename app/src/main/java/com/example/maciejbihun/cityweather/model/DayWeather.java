@@ -1,17 +1,23 @@
 package com.example.maciejbihun.cityweather.model;
 
+import java.text.DateFormat;
+
 /**
  * Created by MaciekBihun on 2016-03-28.
  */
 public class DayWeather {
 
+    public DayWeather(){
+
+    }
+
     private long time;
     private String summary;
     private String icon;
-    private int tempMin;
-    private int tempMax;
-    private double humidity;
-    private int pressure;
+    private String tempMin;
+    private String tempMax;
+    private String humidity;
+    private String pressure;
 
 
     public long getTime() {
@@ -22,35 +28,35 @@ public class DayWeather {
         this.time = time;
     }
 
-    public double getPressure() {
+    public String getPressure() {
         return pressure;
     }
 
-    public void setPressure(int pressure) {
+    public void setPressure(String pressure) {
         this.pressure = pressure;
     }
 
-    public double getHumidity() {
+    public String getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(double humidity) {
+    public void setHumidity(String humidity) {
         this.humidity = humidity;
     }
 
-    public double getTempMax() {
+    public String getTempMax() {
         return tempMax;
     }
 
-    public void setTempMax(int tempMax) {
+    public void setTempMax(String tempMax) {
         this.tempMax = tempMax;
     }
 
-    public double getTempMin() {
+    public String getTempMin() {
         return tempMin;
     }
 
-    public void setTempMin(int tempMin) {
+    public void setTempMin(String tempMin) {
         this.tempMin = tempMin;
     }
 

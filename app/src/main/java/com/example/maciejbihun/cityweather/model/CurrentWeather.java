@@ -6,27 +6,19 @@ package com.example.maciejbihun.cityweather.model;
 public class CurrentWeather {
 
     private String city;
-    private int temperature;
+    private String temperature;
     private String summary;
     private String icon;
     private long time;
-    private int pressure;
+    private String pressure;
 
     private static CurrentWeather currentWeather = new CurrentWeather();
     private CurrentWeather(){
 
     }
 
-    public static CurrentWeather getInstance(){
+    public static  CurrentWeather getInstance(){
         return currentWeather;
-    }
-
-    public int getPressure() {
-        return pressure;
-    }
-
-    public void setPressure(int pressure) {
-        this.pressure = pressure;
     }
 
     public String getCity() {
@@ -37,35 +29,51 @@ public class CurrentWeather {
         this.city = city;
     }
 
-    public void setTemperature(int temperature) {
-        this.temperature = temperature;
+    public static CurrentWeather getCurrentWeather() {
+        return currentWeather;
     }
 
-    public void setSummary(String summary) {
-        this.summary = summary;
+    public static void setCurrentWeather(CurrentWeather currentWeather) {
+        CurrentWeather.currentWeather = currentWeather;
     }
 
-    public void setIcon(String icon) {
-        this.icon = icon;
+    public String getPressure() {
+        return pressure;
     }
 
-    public void setTime(long time) {
-        this.time = time;
-    }
-
-    public int getTemperature() {
-        return temperature;
+    public void setPressure(String pressure) {
+        this.pressure = pressure;
     }
 
     public long getTime() {
         return time;
     }
 
+    public void setTime(long time) {
+        this.time = time;
+    }
+
     public String getIcon() {
         return icon;
     }
 
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
     public String getSummary() {
         return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public String getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(String temperature) {
+        this.temperature = temperature;
     }
 }
