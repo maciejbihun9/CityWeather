@@ -7,8 +7,6 @@ import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +16,7 @@ import android.widget.ListView;
 
 import com.example.maciejbihun.cityweather.R;
 import com.example.maciejbihun.cityweather.view.DayFragment;
+import com.example.maciejbihun.cityweather.view.hourly_fragment_list.HourlyListFragment;
 
 import java.util.ArrayList;
 
@@ -26,6 +25,11 @@ import java.util.ArrayList;
  */
 public class NavigationDrawer {
 
+    public static final String LIST_FRAGMENT = "list_fragment";
+    public static final String TEST_FRAGMENT = "test_fragment";
+    public static final String HOURLY_LIST_FRAGMENT = "hourly_list_fragmnet";
+
+    private static final String TAG = NavigationDrawer.class.getSimpleName();
     private ActionBarDrawerToggle mDrawerToggle;
 
     // nav drawer title
@@ -55,6 +59,7 @@ public class NavigationDrawer {
         this.mDrawerList = mDrawerList;
     }
 
+
     public void initializeNavigationDrawerItems(){
         //mTitle = mDrawerTitle = getTitle();
 
@@ -67,13 +72,13 @@ public class NavigationDrawer {
 
 
 
-        navDrawerItems = new ArrayList<NavDrawerItem>();
+        *//*navDrawerItems = new ArrayList<NavDrawerItem>();
 
         // adding nav drawer items to array
         // Home
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));*//*
         // Find People
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
+       *//* navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
         // Photos
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
         // Communities, Will add a counter here
@@ -81,7 +86,7 @@ public class NavigationDrawer {
         // Pages
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
         // What's hot, We  will add a counter here
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1), true, "50+"));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1), true, "50+"));*//*
 
 
         // Recycle the typed array
@@ -151,45 +156,34 @@ public class NavigationDrawer {
 
     private void displayView(int position) {
 
-        Fragment fragment = null;
+        FragmentManager fragmentManager = parentActivity.getFragmentManager();
         switch (position) {
             case 0:
 
+                if (fragmentManager.findFragmentByTag(TEST_FRAGMENT) != null) {
+                    Fragment fr = fragmentManager.findFragmentByTag(TEST_FRAGMENT);
+                    fragmentManager.beginTransaction().detach(fr);
+                }
                 break;
-            /*case 1:
-                fragment = new FindPeopleFragment();
+            case 1:
+                Fragment hourlyListFragment = new HourlyListFragment();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.frame_container, hourlyListFragment, HOURLY_LIST_FRAGMENT).commit();
+                mDrawerList.setItemChecked(position, true);
+                mDrawerList.setSelection(position);
+                //setTitle(navMenuTitles[position]);
+                mDrawerLayout.closeDrawer(mDrawerList);
                 break;
             case 2:
-                fragment = new PhotosFragment();
-                break;
-            case 3:
-                fragment = new CommunityFragment();
-                break;
-            case 4:
-                fragment = new PagesFragment();
-                break;
-            case 5:
-                fragment = new WhatsHotFragment();
-                break;*/
 
-            default:
+
+
                 break;
+
+
         }
 
-        /*if (fragment != null) {
-            FragmentManager fragmentManager = parentActivity.getFragmentManager();
-            fragmentManager.beginTransaction()
-                    .replace(R.id.frame_container, fragment).commit();
-
-            // update selected item and title, then close the drawer
-            mDrawerList.setItemChecked(position, true);
-            mDrawerList.setSelection(position);
-            //setTitle(navMenuTitles[position]);
-            mDrawerLayout.closeDrawer(mDrawerList);
-        } else {
-            // error in creating fragment
-            Log.e("MainActivity", "Error in creating fragment");
-        }*/
     }
 
 }
+

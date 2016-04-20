@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         navigationDrawer = new NavigationDrawer(MainActivity.this,savedInstanceState, mDrawerLayout, mDrawerList);
         navigationDrawer.initializeNavigationDrawerItems();
+        navigationDrawer.setListFragment();
 
         //----------Initialize ActionBar click listeners-----------------------------
         toggle = new ActionBarDrawerToggle(
