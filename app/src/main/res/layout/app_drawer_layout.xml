@@ -9,41 +9,32 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+            android:layout_height="match_parent"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-    </android.support.design.widget.AppBarLayout>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </android.support.v4.view.ViewPager>
+        </android.support.design.widget.AppBarLayout>
 
-    <FrameLayout
-        android:id="@+id/frame_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.v4.view.ViewPager>
 
-    <!-- Listview to display slider menu -->
-    <ListView
-        android:id="@+id/list_slidermenu"
-        android:layout_width="240dp"
-        android:layout_height="match_parent"
+   <!-- Dodajemy RecyclerView do drawerLayout-->
+    <android.support.v7.widget.RecyclerView
         android:layout_gravity="start"
-        android:choiceMode="singleChoice"
-        android:divider="@color/list_divider"
-        android:dividerHeight="1dp"
-        android:listSelector="@drawable/list_selector"
-        android:background="@color/list_background"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listRecyclerView"/>
 
 </android.support.v4.widget.DrawerLayout>

@@ -12,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,10 +25,6 @@ import com.example.maciejbihun.cityweather.view.navigationDrawer.NavigationDrawe
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    //referencja do id głównego layoutu
-    private DrawerLayout mDrawerLayout;
-    private ListView mDrawerList;
-    private NavigationDrawer navigationDrawer;
     private ActionBarDrawerToggle toggle;
 
     @Override
@@ -40,12 +37,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //---------Initalize navigationDrawer instances-------------------------
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
+        DrawerLayout mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        RecyclerView mRecyclerList = (RecyclerView) findViewById(R.id.listRecyclerView);
 
-        navigationDrawer = new NavigationDrawer(MainActivity.this,savedInstanceState, mDrawerLayout, mDrawerList);
+        NavigationDrawer navigationDrawer = new NavigationDrawer(MainActivity.this,savedInstanceState, mDrawerLayout, mRecyclerList);
         navigationDrawer.initializeNavigationDrawerItems();
-        navigationDrawer.setListFragment();
 
         //----------Initialize ActionBar click listeners-----------------------------
         toggle = new ActionBarDrawerToggle(
@@ -115,16 +111,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    /***
-     * Called when invalidateOptionsMenu() is triggered
-     */
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        // if nav drawer is opened, hide the action items
-        boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-        menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
-        return super.onPrepareOptionsMenu(menu);
-    }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
